@@ -1,0 +1,202 @@
+/*Import Google Fonts*/
+@import url("https://fonts.googleapis.com/css2?family=Lato");
+
+/*Define global variables*/
+:root
+{
+    --primary-color: blue;
+    --secondary-color: pink;
+    --tertiary-color: orange;
+}
+
+/*Generic Styling starts*/
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/*Apply style to <body>*/
+body
+{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+}
+
+body h1
+{
+    font-size: 28px;
+    margin-top: 20px;
+    margin-bottom: -50px;
+    text-align: center;
+    color: var(--primary-color);
+}
+
+h3
+{
+    color: blue;
+}
+/* <body> styling end */
+
+/*Apply style to <header>*/
+header
+{
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+
+header img
+{
+    height: auto;
+    width: 500px;
+}
+/* <header> styling end */
+
+a
+{
+    color: var(--tertiary-color);
+    text-decoration: none;
+}
+
+
+/* Calculator Styling Start */
+.calculator
+{
+    padding: 25px;
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    margin-left: 20px;
+}
+
+.calc-titles
+{
+    padding: 10px 0;
+    text-align: center;
+}
+
+#internal-only
+{
+    color: red;
+}
+
+.input-form, .output-form
+{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 350px;
+    border: 1px solid var(--primary-color);
+    box-shadow: 0 0 3px rgba(0,0,0,0.5);
+    border-radius: 10px;
+    padding: 15px;
+}
+
+.flex-form
+{
+    margin: 50px 50px;
+}
+
+.form-input, .form-output
+{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    width: 250px;
+    height: 35px;
+    padding: 5px 0;
+    margin: 5px 0;
+}
+
+.input-form div:last-child, .output-form div:last-child
+{
+    margin: 15px auto 0 auto; /*change left and right to auto if want centered*/
+}
+
+.calculator div:last-child
+{
+    margin-top: 20px;
+}
+
+.input-form label, .output-form label
+{
+    margin: 10px 0 5px 0;
+}
+
+.optional-btns
+{
+    margin-top: 13px;
+}
+
+#discount-optns
+{
+    margin: 5px 0;
+}
+
+.radio-wrapper
+{
+   position: relative;
+   align-items: center;
+   justify-content: center;
+   margin: -3px 0;
+}
+
+.radio-wrapper input
+{
+    margin: 0 10px 0 10px;
+    line-height: 1.5px;
+}
+
+.enable-disable, .enable-disable-gnw
+{
+    display: none;
+}
+
+#opt-checkbox, #current-fee, #new-fee
+{
+    margin-right: 5px;
+}
+
+#button
+{
+    display: inline-block;
+    border-radius: 20px;
+    background-color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+    color: white;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 500;
+    padding: 10px;
+    width: 100px;
+}
+
+#button:hover
+{
+    background-color: var(--tertiary-color);
+    cursor: pointer;
+}
+/* Calculator Styling Ends */
+
+/*Style for screens 900px or less */
+@media screen and (max-width: 900px)
+{
+    header img
+    {
+        height: auto;
+        width: 200px;
+    }
+
+    .calculator
+    {
+        display: -webkit-flex;
+        display: flex;
+        -webkit-flex-wrap: wrap;
+        flex-wrap: wrap;
+        padding: 10px;
+        margin-left: 0px;
+    }
+}
+
+

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+
+    <!-- Link to external style sheets -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+
+    <!-- Link to external javscript -->
+    <script src="assets/javascript/javascript.js"></script>
+
+    <title>Invoice Calculator</title>
+
+    <!-- Favicon here-->
+    <link rel="icon" type = "image/png" href ="assets/images/Raddymaster Studios Logo.png">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <img src="./assets/images/Raddymaster studios.png" alt="Logo"/>
+    </header>
+    <!-- Calculator Section Start -->
+    <h1>Fee and Discount Calculator</h1>
+    <section class="calculator">
+        <div class="flex-form">
+        <div class="calc-titles">
+            <h3 id="internal-only">For Internal Use Only</h3>
+        </div>
+            <form class="input-form">
+
+                <!--Client Name-->
+                    <label for="client-name">Client Name:</label>
+                    <input class="form-input" type="text" placeholder="" name="client-name" id="client-name" />
+
+                <!--Client Start Date-->
+                    <label for="client-start-date">Client Start Date:</label>
+                    <input class="form-input" type="date" placeholder="1/1/1900" name="client-start-date" id="client-start-date" />
+
+                <!--Client Billable Net Worth-->
+                    <label for="client-bnw">Billable Net Worth:</label>
+                    <input class="form-input" type="number" min="1" placeholder="" name="client-bnw" id="client-bnw" />
+                <div class="optional-btns">
+                    <!-- Optional Show Discounts-->
+                    <input type="checkbox" name="optional-confirm" id="opt-checkbox" onclick="showHiddenInputBoxes()" />
+                    <label for="opt-checkbox">Show optional discounts?</label>
+                </div>
+                <!--(Optional) Discounts - Only show if the optional show discounts checkbox is checked -->
+                <div class="optional-btns enable-disable">
+                    Choose the applicable client discount:
+                </div>   
+                <span class="radio-wrapper enable-disable">
+                    <input type="radio" name="discount-select" id="disc-conc-pos" onclick="showGrossNW()" />
+                    <label for="disc-conc-pos">Concentrated Position (33%)</label>
+                </span>
+                <span class="radio-wrapper enable-disable">
+                    <input type="radio" name="discount-select" id="disc-biz-int" onclick="showGrossNW()"/>
+                    <label for="disc-biz-int">Business Interest</label>
+                </span>
+                <span class="radio-wrapper enable-disable">
+                    <input type="radio" name="discount-select" id="disc-family" onclick="showGrossNW()"/>
+                    <label for="disc-family">Friends and Family (30%)</label>
+                </span>
+                <span class="radio-wrapper enable-disable">
+                    <input type="radio" name="discount-select" id="disc-transition" onclick="showGrossNW()"/>
+                    <label for="disc-transition">Transition (30%)</label>
+                </span>
+
+                <span class="radio-wrapper enable-disable-gnw">
+                    <!-- Only show if the Business Interest Radio Button is selected -->
+                    <label for="client-gnw">Enter the client's gross net worth:</label>
+                </span>
+                <div class="enable-disable-gnw">
+                    <input class="form-input" type="number" min="1" placeholder="" name="client-gnw" id="client-gnw" />
+                </div>
+                <div class="optional-btns">
+                    Select Fee Schedule:
+                </div>
+                <div class="optional-btns">
+                    <input type="radio" name="optional-confirm" id="current-fee" />
+                    <label for="current-fee">Current ($6M / $12M)</label>
+                </div>
+                <div class="optional-btns">
+                    <input type="radio" name="optional-confirm" id="new-fee" />
+                    <label for="new-fee">New ($7.5M / $15M / $30M)</label>
+                </div>
+
+                <div>
+                    <!--Calculate Button-->
+                    <input class="calc-btn" id="button" name="calc-btn" type="button" value="Calculate" onclick="feecalc()" />
+                </div>
+            </form>
+        </div>
+        <br />
+        
+        <div class="flex-form">
+            <div class="calc-titles">
+                <h3>Calculated Values</h3>
+            </div>
+            <form class="output-form">
+    
+                <!--Gross Quarterly Fee-->
+                <label class="enable-disable" for="gross-quarterly-fee">Gross Quarterly Fee:</label>
+                <input class="form-output enable-disable" type="number" readonly="readonly" id="gross-quarterly-fee"/>
+
+                <!--Discount-->
+                <label class="enable-disable" for="discount">Discount:</label>
+                <input class="form-output enable-disable" type="number" readonly="readonly" id="discount" />
+
+                <!--Net Quarterly Fee-->
+                <label for="net-quarterly-fee">Net Quarterly Fee:</label>
+                <input class="form-output" type="number" readonly="readonly" id="net-quarterly-fee" />
+
+                <!--Invoice Quantity-->
+                <label for="invoice-quantity">Invoice Quantity Value:</label>
+                <input class="form-output" type="number" readonly="readonly" id="invoice-quantity" />
+
+                <div>
+                    <!--Reset Button-->
+                    <input class="reset-btn" id="button" name="reset-btn" type="button" value="Reset" onclick="clearForms()"/>
+                    <!--Print Button-->
+                    <input class="print-btn" id="button" name="print-btn" type="button" value="Print" onclick="window.print()" />
+                </div>
+            </form>
+            <div>
+                Click <a href="mailto:test@example.com">here</a> to submit feedback about this tool.
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
